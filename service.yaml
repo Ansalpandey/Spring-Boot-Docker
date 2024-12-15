@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-boot-app-service
+spec:
+  selector:
+    app: spring-boot-app
+  ports:
+    - protocol: TCP
+      port: 80      # External port
+      targetPort: 8080 # Container port
+  type: LoadBalancer # For external access (NodePort for local Minikube)
